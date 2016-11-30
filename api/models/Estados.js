@@ -8,7 +8,6 @@
 module.exports = {
 
   schema: true,
-  connection: 'mongoDb',
   tableName: 'Estados',
   autoCreatedAt: true,
   autoUpdatedAt: true,

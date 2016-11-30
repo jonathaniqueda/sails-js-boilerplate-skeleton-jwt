@@ -10,7 +10,6 @@ var bcrypt = require('bcrypt');
 module.exports = {
 
   schema: true,
-  connection: 'mongoDb',
   tableName: 'Users',
   autoCreatedAt: true,
   autoUpdatedAt: true,

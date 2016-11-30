@@ -17,14 +17,22 @@ module.exports = {
    * environment (see config/connections.js and config/models.js )           *
    ***************************************************************************/
 
-  mongoDb: {
-    adapter: 'sails-mongo',
-    host: 'localhost',
-    port: 27017,
-    user: 'mongodb', //optional
-    password: '', //optional
-    database: 'simpleapi' //optional
+  connections: {
+    mongoDb: {
+      adapter: 'sails-mongo',
+      host: 'localhost',
+      port: 27017,
+      user: 'mongodb', //optional
+      password: '', //optional
+      database: 'simpleapi' //optional
+    }
   },
+
+  models: {
+    connection: 'mongoDb'
+  },
+
+  tokenExpiresTime: 360,
 
   /***************************************************************************
    * Set the port in the production environment to 80                        *
