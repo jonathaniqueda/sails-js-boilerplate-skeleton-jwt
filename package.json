@@ -1,8 +1,8 @@
 {
-  "name": "Boilerplate SailsJS RestFul With JWT Auth Logical",
+  "name": "sails-js-boilerplate-skeleton-jwt",
   "private": true,
   "version": "0.0.1",
-  "description": "Simple API RestFul based on SailsJS",
+  "description": "Simple API RESTFul based on SailsJS With JWT Auth",
   "keywords": [],
   "dependencies": {
     "bcrypt": "^0.8.7",

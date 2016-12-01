@@ -57,9 +57,4 @@ module.exports.routes = {
    *                                                                          *
    ***************************************************************************/
 
-  'GET /api/v1/get-ddds/:uf': {
-    controller: "EstadosController",
-    action: "getDdds"
-  },
-
 };
