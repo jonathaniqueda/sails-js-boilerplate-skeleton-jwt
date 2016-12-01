@@ -2,7 +2,7 @@
   "name": "sails-js-boilerplate-skeleton-jwt",
   "private": true,
   "version": "0.0.1",
-  "description": "Simple API RESTFul based on SailsJS With JWT Auth",
+  "description": "Simple API RESTful based on SailsJS With JWT Auth",
   "keywords": [],
   "dependencies": {
     "bcrypt": "^0.8.7",
