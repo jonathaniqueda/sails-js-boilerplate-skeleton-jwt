@@ -28,6 +28,12 @@ module.exports = {
     encryptedPassword: {
       type: 'String',
     },
+    token: {
+      type: 'String',
+    },
+    tokenExpiresDate: {
+      type: 'Date',
+    },
     createdAt: {
       type: 'Date',
       required: true

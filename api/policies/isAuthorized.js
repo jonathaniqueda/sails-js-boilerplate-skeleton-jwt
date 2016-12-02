@@ -18,18 +18,18 @@ module.exports = function(req, res, next) {
         token = credentials;
       }
     } else {
-      return res.json(401, ResponseMessage.pattern('error', 'Format is Authorization: Bearer [token]', null));
+      return res.json(401, ResponseMessage.pattern('error', {formatError:'Format is Authorization: Bearer [token]'}, null));
     }
   } else if (req.param('token')) {
     token = req.param('token');
     // We delete the token from param to not mess with blueprints
     delete req.query.token;
   } else {
-    return res.json(401, ResponseMessage.pattern('error', 'No Authorization header was found', null));
+    return res.json(401, ResponseMessage.pattern('error', {headerError: 'No Authorization header was found'}, null));
   }
 
   JwToken.verify(token, function(err, token) {
-    if (err) return res.json(401, ResponseMessage.pattern('error', 'Invalid Token. Try login again.', null));
+    if (err) return res.json(401, ResponseMessage.pattern('error', {tokenError: 'Invalid Token. Try login again.'}, null));
     req.token = token; // This is the decrypted token or the payload you provided
     next();
   });

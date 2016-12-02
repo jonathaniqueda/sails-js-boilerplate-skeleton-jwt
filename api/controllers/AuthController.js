@@ -4,6 +4,7 @@
  * @description :: Server-side logic for managing auths
  * @help        :: See http://links.sailsjs.org/docs/controllers
  */
+var moment = require('moment');
 
 module.exports = {
 
@@ -35,20 +36,30 @@ module.exports = {
 
         if (!valid) {
           return res.json(401, ResponseMessage.pattern('error', 'Invalid password', null));
+        }
+
+        var now = moment();
+        var tokenExpiresDate = moment(user.tokenExpiresDate, "YYYY-MM-DD'T'HH:mm:ss:SSSZ");
+
+        if (now <= tokenExpiresDate) {
+          var token = user.token;
         } else {
-          res.json(ResponseMessage.pattern('success', null, {
-            email: user.email,
-            expiresInMinutes: sails.config.tokenExpiresTime,
-            token: JwToken.issue({
-              id: user.id
-            })
-          }));
+          var token = JwToken.issue({
+            id: user.id
+          });
         } //close else
+
+        res.json(ResponseMessage.pattern('success', null, {
+          email: user.email,
+          expiresInSeconds: sails.config.tokenExpiresTime,
+          expiresDate: user.tokenExpiresDate,
+          token: token
+        }));
 
       }); //close compare
 
     }); //close findOne
 
-  }
+  },
 
 };

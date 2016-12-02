@@ -31,6 +31,6 @@ module.exports = {
     connection: 'mongoDb'
   },
 
-  tokenExpiresTime: 360,
+  tokenExpiresTime: 36000,
 
 };
